@@ -1,0 +1,18 @@
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find ur_e_description)/urdf/ur5e.urdf.xacro" />
+
+  <joint name="left_arm_mount_joint" type="fixed">
+    <parent link="bulkhead_front_mount_link" />
+    <child link="left_ur_arm_base_link" />
+    <origin xyz="$(optenv WARTHOG_LEFT_UR_XYZ 0.0 0.2 0.0)" rpy="$(optenv WARTHOG_LEFT_UR_RPY 0 0 3.14159)"/>
+  </joint>
+
+  <joint name="right_arm_mount_joint" type="fixed">
+    <parent link="bulkhead_front_mount_link" />
+    <child link="right_ur_arm_base_link" />
+    <origin xyz="$(optenv WARTHOG_RIGHT_UR_XYZ 0.0 -0.2 0.0)" rpy="$(optenv WARTHOG_RIGHT_UR_RPY 0 0 3.14159)"/>
+  </joint>
+
+  <xacro:ur5e_robot prefix="left_ur_arm_" joint_limited="false"/>
+  <xacro:ur5e_robot prefix="right_ur_arm_" joint_limited="false"/>
+</robot>

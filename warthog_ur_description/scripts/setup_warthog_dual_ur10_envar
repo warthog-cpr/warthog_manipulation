@@ -1,0 +1,3 @@
+export WARTHOG_BULKHEAD=1
+
+export WARTHOG_URDF_EXTRAS=$(catkin_find warthog_ur_description urdf/warthog_dual_ur10_description.urdf.xacro --first-only)
