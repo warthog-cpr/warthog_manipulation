@@ -1,0 +1,10 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: warthog_description
+    relative_path: urdf/warthog.urdf.xacro
+  SRDF:
+    relative_path: config/warthog.srdf
+  CONFIG:
+    author_name: Dave Niewinski
+    author_email: dniewinski@clearpathrobotics.com
+    generated_timestamp: 1518810924
