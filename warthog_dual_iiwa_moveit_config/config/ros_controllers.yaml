@@ -1,0 +1,55 @@
+# Simulation settings for using moveit_sim_controllers
+moveit_sim_hw_interface:
+  joint_model_group: left_manipulator
+  joint_model_group_pose: vertical
+# Settings for ros_control_boilerplate control loop
+generic_hw_control_loop:
+  loop_hz: 300
+  cycle_time_error_threshold: 0.01
+# Settings for ros_control hardware interface
+hardware_interface:
+  joints:
+    - left_diff_unit_joint
+    - front_left_wheel_joint
+    - rear_left_wheel_joint
+    - right_diff_unit_joint
+    - front_right_wheel_joint
+    - rear_right_wheel_joint
+    - left_iiwa_arm_joint_1
+    - left_iiwa_arm_joint_2
+    - left_iiwa_arm_joint_3
+    - left_iiwa_arm_joint_4
+    - left_iiwa_arm_joint_5
+    - left_iiwa_arm_joint_6
+    - left_iiwa_arm_joint_7
+    - left_hand_j11_joint
+    - left_hand_j12_joint
+    - left_hand_j13_joint
+    - left_hand_j21_joint
+    - left_hand_j22_joint
+    - left_hand_j23_joint
+    - left_hand_j32_joint
+    - left_hand_j33_joint
+    - right_iiwa_arm_joint_1
+    - right_iiwa_arm_joint_2
+    - right_iiwa_arm_joint_3
+    - right_iiwa_arm_joint_4
+    - right_iiwa_arm_joint_5
+    - right_iiwa_arm_joint_6
+    - right_iiwa_arm_joint_7
+    - right_hand_j11_joint
+    - right_hand_j12_joint
+    - right_hand_j13_joint
+    - right_hand_j21_joint
+    - right_hand_j22_joint
+    - right_hand_j23_joint
+    - right_hand_j32_joint
+    - right_hand_j33_joint
+  sim_control_mode: 1  # 0: position, 1: velocity
+# Publish all joint states
+# Creates the /joint_states topic necessary in ROS
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50
+controller_list:
+  []

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:arg name="left_prefix" default="left_iiwa_arm" />
+  <xacro:arg name="left_mount" default="left_arm_mount" />
+  <xacro:arg name="left_origin_xyz" default="0 0 0"/>
+  <xacro:arg name="left_origin_rpy" default="0 0 0"/>
+
+  <xacro:arg name="right_mount" default="right_arm_mount" />
+  <xacro:arg name="right_prefix" default="right_iiwa_arm" />
+  <xacro:arg name="right_origin_xyz" default="0 0 0"/>
+  <xacro:arg name="right_origin_rpy" default="0 0 0"/>
+
+  <xacro:include filename="$(find iiwa_description)/urdf/materials.xacro" />
+  <xacro:include filename="$(find iiwa_description)/urdf/iiwa14.xacro"/>
+
+  <xacro:arg name="hardware_interface" default="PositionJointInterface"/>
+  <xacro:arg name="origin_xyz" default="0 0 0"/>
+  <xacro:arg name="origin_rpy" default="0 0 0"/>
+
+  <xacro:iiwa14 hardware_interface="$(arg hardware_interface)" robot_name="$(arg left_prefix)" parent="$(arg left_mount)">
+    <origin xyz="$(arg left_origin_xyz)" rpy="$(arg left_origin_rpy)" />
+  </xacro:iiwa14>
+
+  <xacro:iiwa14 hardware_interface="$(arg hardware_interface)" robot_name="$(arg right_prefix)" parent="$(arg right_mount)">
+    <origin xyz="$(arg right_origin_xyz)" rpy="$(arg right_origin_rpy)" />
+  </xacro:iiwa14>
+</robot>
