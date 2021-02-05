@@ -5,17 +5,19 @@
 
   <xacro:arg name="hardware_interface" default="PositionJointInterface"/>
   <xacro:arg name="robot_name" default="iiwa"/>
+  <xacro:arg name="parent"  default="bulkhead_front_mount_link" />
+
   <xacro:arg name="origin_xyz" default="0 0 0"/>
   <xacro:arg name="origin_rpy" default="0 0 0"/>
 
-  <joint name="arm_mount_joint" type="fixed">
-    <parent link="bulkhead_front_mount_link" />
-    <child link="arm_mount_link" />
+  <joint name="$(arg robot_name)_mount_joint" type="fixed">
+    <parent link="$(arg parent)" />
+    <child link="$(arg robot_name)_mount_link" />
     <origin xyz="$(optenv WARTHOG_IIWA_XYZ 0.0 0.0 0.0)" rpy="$(optenv WARTHOG_IIWA_RPY 0 0 0)"/>
   </joint>
-  <link name="arm_mount_link" />
-  
-  <xacro:iiwa14 hardware_interface="$(arg hardware_interface)" robot_name="$(arg robot_name)" parent="arm_mount_link">
+  <link name="$(arg robot_name)_mount_link" />
+
+  <xacro:iiwa14 hardware_interface="$(arg hardware_interface)" robot_name="$(arg robot_name)" parent="$(arg robot_name)_mount_link">
     <origin xyz="$(arg origin_xyz)" rpy="$(arg origin_rpy)" />
   </xacro:iiwa14>
 </robot>
