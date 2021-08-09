@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-export WARTHOG_BULKHEAD=1
-export WARTHOG_URDF_EXTRAS=$(catkin_find warthog_kinova_description urdf/warthog_gen3_robotiq_2f_140_description.urdf.xacro --first-only)
