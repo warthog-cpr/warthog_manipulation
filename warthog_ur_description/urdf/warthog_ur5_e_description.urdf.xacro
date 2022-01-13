@@ -6,7 +6,7 @@
   <joint name="arm_mount_joint" type="fixed">
     <parent link="top_chassis_link" />
     <child link="ur_arm_base_link" />
-    <origin xyz="$(optenv WARTHOG_UR_XYZ 0.3 0 0)" rpy="$(optenv WARTHOG_UR_RPY 0 0 0)"/>
+    <origin xyz="$(optenv WARTHOG_UR_XYZ 0 0 0)" rpy="$(optenv WARTHOG_UR_RPY 0 0 0)"/>
   </joint>
 
   <xacro:ur5e_robot prefix="ur_arm_" />
